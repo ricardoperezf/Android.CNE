@@ -2,4 +2,12 @@
 <resources>
   <string name="hello">Hello World, Click Me!</string>
   <string name="app_name">Android.CNE</string>
+
+  <string-array name="dropdown_arrays">
+    <item>Elige uno:</item>
+    <item>TERRESTTRE</item>
+    <item>AEREA</item>
+    <item>PLUVIAL</item>
+    <item>MARÍTIMA</item>
+  </string-array>
 </resources>

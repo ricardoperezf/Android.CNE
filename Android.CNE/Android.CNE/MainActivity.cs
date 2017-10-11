@@ -7,8 +7,6 @@ namespace Android.CNE
     [Activity(Label = "Android.CNE", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
-        int count = 1;
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -16,11 +14,19 @@ namespace Android.CNE
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.myButton);
-
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            var spinnerAccesoZona = FindViewById<Spinner>(Resource.Id.spinnerAccesoZona);
+            spinnerAccesoZona.ItemSelected += (s, e) =>
+            {
+                string firstItem = spinnerAccesoZona.SelectedItem.ToString();
+                if (firstItem.Equals(spinnerAccesoZona.SelectedItem.ToString()))
+                {
+                    //To do when first item is selected.
+                }
+                else
+                {
+                    Toast.MakeText(this, "Ha elegido: " + e.Parent.GetItemIdAtPosition(e.Position).ToString(), ToastLength.Short).Show();
+                }
+            };
         }
     }
 }
